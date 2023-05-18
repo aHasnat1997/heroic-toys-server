@@ -29,14 +29,22 @@ const client = new MongoClient(uri, {
 async function run() {
   try {
     // Connect the client to the server	(optional starting in v4.7)
-    await client.connect();
+    client.connect();
 
     const productCollection = client.db('heroic-toys').collection('products');
+    const feedbackCollection = client.db('heroic-toys').collection('customer-feedback');
 
     app.get('/all-products', async (req, res) => {
-      const result = await productCollection.find().project({ name: 1, image: 1, price: 1, rating: 1 }).toArray();
+      const result = await productCollection.find().project(
+        { name: 1, image: 1, price: 1, rating: 1, featuredAs: 1 }
+      ).toArray();
       res.send(result);
-    })
+    });
+
+    app.get('/customer-feedback', async (req, res) => {
+      const result = await feedbackCollection.find().toArray();
+      res.send(result);
+    });
 
     app.get('/product/:id', async (req, res) => {
       const id = req.params.id;

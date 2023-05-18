@@ -1,0 +1,42 @@
+[
+  {
+    "image": "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80",
+    "name": "John Smith",
+    "feedback": "The action figures I purchased from your store are fantastic! The quality and detailing are amazing. I'm highly satisfied with my purchase."
+  },
+  {
+    "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80",
+    "name": "Emily Johnson",
+    "feedback": "I'm really impressed with the action figures I received from your store. The packaging was excellent, and the toys are exactly as described. Will definitely recommend your store to others."
+  },
+  {
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSU4isIlWxOex2qVPSF3mvsmsByxC0Mq0U8M_UrwRFPUkSvbbg5geYOxfT--ZfOmlu-Om0&usqp=CAU",
+    "name": "Michael Davis",
+    "feedback": "Your action figures exceeded my expectations. The attention to detail is incredible, and they look fantastic on display. Thank you for the great product!"
+  },
+  {
+    "image": "https://st4.depositphotos.com/1049680/22221/i/600/depositphotos_222212456-stock-photo-young-blonde-woman-isolated-background.jpg",
+    "name": "Sarah Thompson",
+    "feedback": "I've been collecting action figures for years, and I must say, yours are some of the best I've seen. The articulation and paint job are top-notch. Keep up the great work!"
+  },
+  {
+    "image": "https://media.nngroup.com/media/people/photos/2022-portrait-page-3.jpg.600x600_q75_autocrop_crop-smart_upscale.jpg",
+    "name": "David Wilson",
+    "feedback": "I recently bought a few action figures from your store, and they arrived in perfect condition. The shipping was fast, and the customer service was excellent. Highly recommended!"
+  },
+  {
+    "image": "https://images.unsplash.com/photo-1668732038385-1717f3c72b6d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHw%3D&w=1000&q=80",
+    "name": "Jennifer Lee",
+    "feedback": "The action figures I purchased from your store are amazing. The level of detail is astonishing, and they look great in my collection. I will definitely be buying more from your store!"
+  },
+  {
+    "image": "https://media.istockphoto.com/id/1200677760/photo/portrait-of-handsome-smiling-young-man-with-crossed-arms.jpg?s=612x612&w=0&k=20&c=g_ZmKDpK9VEEzWw4vJ6O577ENGLTOcrvYeiLxi8mVuo=",
+    "name": "Daniel Brown",
+    "feedback": "Your action figures are fantastic! The quality is exceptional, and they are worth every penny. I'm extremely happy with my purchase and will be a returning customer."
+  },
+  {
+    "image": "https://st.depositphotos.com/2212674/53349/i/600/depositphotos_533499280-stock-photo-portrait-young-woman-smiling-laughing.jpg",
+    "name": "Olivia Clark",
+    "feedback": "I've been a collector for years, and I have to say, your action figures are some of the best I've come across. The attention to detail and craftsmanship is outstanding. Thank you!"
+  }
+]
