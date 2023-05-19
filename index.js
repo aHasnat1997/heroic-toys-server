@@ -53,14 +53,11 @@ async function run() {
       res.send(result);
     });
 
-    // app.get('/products/:featured', async (req, res) => {
-    //   const featured = req.params.featured;
-    //   // console.log(featured);
-    //   const query = { featuredAs: new ObjectId(featured) };
-    //   // console.log(query);
-    //   const result = await productCollection.find(query).project({ name: 1, image: 1, price: 1, rating: 1 }).toArray();
-    //   res.send(result);
-    // });
+    app.post('/all-products', async (req, res) => {
+      const doc = req.body;
+      const result = await productCollection.insertOne(doc);
+      res.send(result);
+    });
 
 
 
