@@ -59,10 +59,9 @@ async function run() {
     });
 
     app.get('/my-toys', async (req, res) => {
-      // const query = {
-      //   seller: { email: req.query.email }
-      // };
-      const result = await productCollection.find().project(
+      const email = req.query.email;
+      const query = { "seller.email": email }
+      const result = await productCollection.find(query).project(
         { name: 1, image: 1, price: 1, category: 1, availableQuantity: 1, featuredAs: 1, details: 1, rating: 1 }
       ).toArray();
       res.send(result);
