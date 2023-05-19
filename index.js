@@ -58,6 +58,16 @@ async function run() {
       res.send(result);
     });
 
+    app.get('/my-toys', async (req, res) => {
+      // const query = {
+      //   seller: { email: req.query.email }
+      // };
+      const result = await productCollection.find().project(
+        { name: 1, price: 1, category: 1, availableQuantity: 1, featuredAs: 1, details: 1 }
+      ).toArray();
+      res.send(result);
+    });
+
     app.post('/all-products', async (req, res) => {
       const doc = req.body;
       const result = await productCollection.insertOne(doc);
