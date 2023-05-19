@@ -63,7 +63,7 @@ async function run() {
       //   seller: { email: req.query.email }
       // };
       const result = await productCollection.find().project(
-        { name: 1, price: 1, category: 1, availableQuantity: 1, featuredAs: 1, details: 1 }
+        { name: 1, image: 1, price: 1, category: 1, availableQuantity: 1, featuredAs: 1, details: 1, rating: 1 }
       ).toArray();
       res.send(result);
     });
@@ -74,6 +74,12 @@ async function run() {
       res.send(result);
     });
 
+    app.delete('/product/:id', async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: new ObjectId(id) };
+      const result = await productCollection.deleteOne(query);
+      res.send(result);
+    })
 
 
 
