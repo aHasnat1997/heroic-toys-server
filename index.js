@@ -41,6 +41,11 @@ async function run() {
       res.send(result);
     });
 
+    app.get('/categories', async (req, res) => {
+      const result = await productCollection.find().project({ category: 1 }).toArray();
+      res.send(result);
+    });
+
     app.get('/customer-feedback', async (req, res) => {
       const result = await feedbackCollection.find().toArray();
       res.send(result);
