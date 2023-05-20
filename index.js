@@ -34,17 +34,36 @@ async function run() {
     const productCollection = client.db('heroic-toys').collection('products');
     const feedbackCollection = client.db('heroic-toys').collection('customer-feedback');
 
+
+    const indexKeys = { name: 1, category: 1 };
+    const indexOptions = { name: "nameCategory" };
+    const result = await productCollection.createIndex(indexKeys, indexOptions);
+    console.log(result);
+    app.get("/searchText/:text", async (req, res) => {
+      const text = req.params.text;
+      const result = await productCollection
+        .find({
+          $or: [
+            { name: { $regex: text, $options: "i" } },
+            { category: { $regex: text, $options: "i" } },
+          ],
+        })
+        .toArray();
+      res.send(result);
+    });
+
+
     app.get('/all-products/:featured', async (req, res) => {
       const filter = req.params.featured;
       const query = { featuredAs: filter };
-      if (filter==="hot-product"||filter==="best-sellers"||filter==="new-arrival") {
+      if (filter === "hot-product" || filter === "best-sellers" || filter === "new-arrival") {
         const result = await productCollection.find(query).project(
-          { name: 1, image: 1, price: 1, rating: 1, featuredAs: 1 }
+          { name: 1, image: 1, price: 1, rating: 1, featuredAs: 1, category: 1, seller: 1, availableQuantity: 1 }
         ).toArray();
         return res.send(result);
       }
       const result = await productCollection.find().project(
-        { name: 1, image: 1, price: 1, rating: 1, featuredAs: 1 }
+        { name: 1, image: 1, price: 1, rating: 1, featuredAs: 1, category: 1, seller: 1, availableQuantity: 1 }
       ).toArray();
       res.send(result);
     });
