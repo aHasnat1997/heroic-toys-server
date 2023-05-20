@@ -34,7 +34,15 @@ async function run() {
     const productCollection = client.db('heroic-toys').collection('products');
     const feedbackCollection = client.db('heroic-toys').collection('customer-feedback');
 
-    app.get('/all-products', async (req, res) => {
+    app.get('/all-products/:featured', async (req, res) => {
+      const filter = req.params.featured;
+      const query = { featuredAs: filter };
+      if (filter==="hot-product"||filter==="best-sellers"||filter==="new-arrival") {
+        const result = await productCollection.find(query).project(
+          { name: 1, image: 1, price: 1, rating: 1, featuredAs: 1 }
+        ).toArray();
+        return res.send(result);
+      }
       const result = await productCollection.find().project(
         { name: 1, image: 1, price: 1, rating: 1, featuredAs: 1 }
       ).toArray();
