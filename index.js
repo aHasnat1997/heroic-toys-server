@@ -54,6 +54,10 @@ async function run() {
 
 
     app.get('/all-products/:featured', async (req, res) => {
+      const limit = parseInt(req.query.limit) || 20;
+      const page = parseInt(req.query.page) || 1;
+      const skip = (page - 1) * limit;
+
       const filter = req.params.featured;
       const query = { featuredAs: filter };
       if (filter === "hot-product" || filter === "best-sellers" || filter === "new-arrival") {
@@ -62,7 +66,7 @@ async function run() {
         ).toArray();
         return res.send(result);
       }
-      const result = await productCollection.find().project(
+      const result = await productCollection.find().limit(limit).skip(skip).project(
         { name: 1, image: 1, price: 1, rating: 1, featuredAs: 1, category: 1, seller: 1, availableQuantity: 1 }
       ).toArray();
       res.send(result);
